@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Gerritter.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CygwinBinDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\cygwin\bin\</Value>
+    </Setting>
+    <Setting Name="GerritHostName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">gerrit.example.com</Value>
+    </Setting>
+    <Setting Name="GerritPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">29418</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
