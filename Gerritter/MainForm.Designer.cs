@@ -67,7 +67,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cygwinBinDirectory.Location = new System.Drawing.Point(101, 54);
             this.cygwinBinDirectory.Name = "cygwinBinDirectory";
-            this.cygwinBinDirectory.Size = new System.Drawing.Size(335, 19);
+            this.cygwinBinDirectory.Size = new System.Drawing.Size(327, 19);
             this.cygwinBinDirectory.TabIndex = 3;
             // 
             // label1
@@ -96,7 +96,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gerritHost.Location = new System.Drawing.Point(101, 79);
             this.gerritHost.Name = "gerritHost";
-            this.gerritHost.Size = new System.Drawing.Size(194, 19);
+            this.gerritHost.Size = new System.Drawing.Size(186, 19);
             this.gerritHost.TabIndex = 5;
             // 
             // label3
@@ -119,13 +119,13 @@
             this.projectListBox.FormattingEnabled = true;
             this.projectListBox.Location = new System.Drawing.Point(102, 198);
             this.projectListBox.Name = "projectListBox";
-            this.projectListBox.Size = new System.Drawing.Size(334, 142);
+            this.projectListBox.Size = new System.Drawing.Size(326, 114);
             this.projectListBox.TabIndex = 11;
             // 
             // quitButton
             // 
             this.quitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.quitButton.Location = new System.Drawing.Point(361, 12);
+            this.quitButton.Location = new System.Drawing.Point(353, 12);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 30);
             this.quitButton.TabIndex = 1;
@@ -142,7 +142,7 @@
             this.eventListBox.FormattingEnabled = true;
             this.eventListBox.Location = new System.Drawing.Point(102, 104);
             this.eventListBox.Name = "eventListBox";
-            this.eventListBox.Size = new System.Drawing.Size(334, 86);
+            this.eventListBox.Size = new System.Drawing.Size(326, 86);
             this.eventListBox.TabIndex = 9;
             // 
             // label4
@@ -160,7 +160,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(302, 82);
+            this.label5.Location = new System.Drawing.Point(294, 82);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 12);
             this.label5.TabIndex = 6;
@@ -169,7 +169,7 @@
             // gerritPort
             // 
             this.gerritPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gerritPort.Location = new System.Drawing.Point(378, 79);
+            this.gerritPort.Location = new System.Drawing.Point(370, 79);
             this.gerritPort.Name = "gerritPort";
             this.gerritPort.Size = new System.Drawing.Size(58, 19);
             this.gerritPort.TabIndex = 7;
@@ -178,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 355);
+            this.ClientSize = new System.Drawing.Size(440, 328);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.gerritPort);
             this.Controls.Add(this.eventListBox);
@@ -194,6 +194,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(300, 309);
             this.Name = "MainForm";
             this.Text = "Gerritter";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
