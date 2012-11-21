@@ -91,6 +91,10 @@ namespace Gerritter
         {
             startButton.Enabled = false;
 
+            cygwinBinDirectory.ReadOnly = true;
+            gerritHost.ReadOnly = true;
+            gerritPort.ReadOnly = true;
+
             string directoryOfCygwin = cygwinBinDirectory.Text;
             string ssh = directoryOfCygwin + @"ssh.exe";
             string args = string.Format(@"-t -t -p {0} {1} gerrit stream-events", gerritPort.Text, gerritHost.Text);
