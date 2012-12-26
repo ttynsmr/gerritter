@@ -148,6 +148,7 @@ namespace Gerritter
             process.BeginErrorReadLine();
 
             ShowMessage(new NotificationMessage("Connected", "Event notification started.", null));
+            SetTrayMessage(gerritHost.Text + ":" + gerritPort.Text);
         }
 
         private void DisconnectGerritStreamEvents()
@@ -166,6 +167,7 @@ namespace Gerritter
 
             process = null;
             ShowMessage(new NotificationMessage("Disconnected", "Event notification stopped.", null));
+            SetTrayMessage("");
         }
         #endregion
 
@@ -192,11 +194,22 @@ namespace Gerritter
             InitializeComponent();
         }
 
+        private void SetTrayMessage(string message)
+        {
+            if (message.Length > 0)
+            {
+                notifyIcon.Text = this.Text + " (" + message + ")";
+            }
+            else
+            {
+                notifyIcon.Text = this.Text;
+            }
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             notifyIcon.Icon = this.Icon;
-            notifyIcon.Text = this.Text;
+            SetTrayMessage("");
 
             LoadSettings();
 
