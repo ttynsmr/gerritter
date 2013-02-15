@@ -89,7 +89,11 @@ namespace Gerritter
 
         private void ConnectGerritStreamEvents()
         {
+            exitRequested = false;
+            stopRequested = false;
+
             startButton.Enabled = false;
+            stopButton.Enabled = true;
 
             cygwinBinDirectory.ReadOnly = true;
             gerritHost.ReadOnly = true;
@@ -131,14 +135,29 @@ namespace Gerritter
                     return;
                 }
 
-                var result = MessageBox.Show("Connection lost.\nDo you want to reconnect now?", "Gerritter", MessageBoxButtons.YesNo);
-                switch (result)
+                if (stopRequested)
                 {
-                    case System.Windows.Forms.DialogResult.Yes:
+                    EnableConnectButton();
+                }
+                else
+                {
+                    if (autoReconnect)
+                    {
+                        System.Threading.Thread.Sleep(5000);
                         ConnectGerritStreamEvents();
-                        break;
-                    case System.Windows.Forms.DialogResult.No:
-                        break;
+                        return;
+                    }
+
+                    var result = MessageBox.Show("Connection lost.\nDo you want to reconnect now?", "Gerritter (" + gerritHost.Text + ":" + gerritPort.Text + ")", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    switch (result)
+                    {
+                        case System.Windows.Forms.DialogResult.Yes:
+                            ConnectGerritStreamEvents();
+                            break;
+                        case System.Windows.Forms.DialogResult.No:
+                            EnableConnectButton();
+                            break;
+                    }
                 }
             });
             process.EnableRaisingEvents = true;
@@ -149,6 +168,25 @@ namespace Gerritter
 
             ShowMessage(new NotificationMessage("Connected", "Event notification started.", null));
             SetTrayMessage(gerritHost.Text + ":" + gerritPort.Text);
+        }
+
+        delegate void EnableConnectButtonDelegate();
+
+        private void EnableConnectButton()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new EnableConnectButtonDelegate(EnableConnectButton));
+            }
+            else
+            {
+                startButton.Enabled = true;
+                stopButton.Enabled = false;
+
+                cygwinBinDirectory.ReadOnly = false;
+                gerritHost.ReadOnly = false;
+                gerritPort.ReadOnly = false;
+            }
         }
 
         private void DisconnectGerritStreamEvents()
@@ -375,6 +413,20 @@ namespace Gerritter
 
             var results = process.StandardOutput.ReadToEnd();
             return results;
+        }
+
+        private bool autoReconnect = false;
+
+        private void checkBoxAutoReconnect_CheckedChanged(object sender, EventArgs e)
+        {
+            autoReconnect = (sender as CheckBox).Checked;
+        }
+
+        private bool stopRequested = false;
+        private void StopButton_Click(object sender, EventArgs e)
+        {
+            stopRequested = true;
+            process.Kill();
         }
     }
 }

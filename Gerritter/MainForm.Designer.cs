@@ -43,6 +43,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.gerritPort = new System.Windows.Forms.TextBox();
+            this.checkBoxAutoReconnect = new System.Windows.Forms.CheckBox();
+            this.stopButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startButton
@@ -174,11 +176,35 @@
             this.gerritPort.Size = new System.Drawing.Size(58, 19);
             this.gerritPort.TabIndex = 7;
             // 
+            // checkBoxAutoReconnect
+            // 
+            this.checkBoxAutoReconnect.AutoSize = true;
+            this.checkBoxAutoReconnect.Location = new System.Drawing.Point(195, 12);
+            this.checkBoxAutoReconnect.Name = "checkBoxAutoReconnect";
+            this.checkBoxAutoReconnect.Size = new System.Drawing.Size(102, 16);
+            this.checkBoxAutoReconnect.TabIndex = 12;
+            this.checkBoxAutoReconnect.Text = "Auto reconnect";
+            this.checkBoxAutoReconnect.UseVisualStyleBackColor = true;
+            this.checkBoxAutoReconnect.CheckedChanged += new System.EventHandler(this.checkBoxAutoReconnect_CheckedChanged);
+            // 
+            // stopButton
+            // 
+            this.stopButton.Enabled = false;
+            this.stopButton.Location = new System.Drawing.Point(93, 12);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(75, 30);
+            this.stopButton.TabIndex = 13;
+            this.stopButton.Text = "Stop";
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.StopButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 328);
+            this.Controls.Add(this.stopButton);
+            this.Controls.Add(this.checkBoxAutoReconnect);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.gerritPort);
             this.Controls.Add(this.eventListBox);
@@ -220,6 +246,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox gerritPort;
+        private System.Windows.Forms.CheckBox checkBoxAutoReconnect;
+        private System.Windows.Forms.Button stopButton;
     }
 }
 
