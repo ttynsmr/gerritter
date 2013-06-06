@@ -39,6 +39,10 @@ namespace Gerritter
                     gerritEvent = new PatchsetCreatedEvent(json);
                     break;
 
+                case EventType.DraftPublished:
+                    gerritEvent = new DraftPublishedEvent(json);
+                    break;
+
                 case EventType.ChangeAbandoned:
                     gerritEvent = new ChangeAbandonedEvent(json);
                     break;
@@ -69,6 +73,11 @@ namespace Gerritter
 
         private bool IsNotifiable(IGerritEvent gerritEvent)
         {
+            if (gerritEvent == null)
+            {
+                return false;
+            }
+
             var checkedProjects = projectListBox.CheckedItems.Cast<Project>();
             if (!checkedProjects.Any(project => { return project.name == gerritEvent.ProjectName; }))
             {

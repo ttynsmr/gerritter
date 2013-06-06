@@ -5,6 +5,7 @@ namespace Gerritter.GerritStreamEvents.Events
     public enum EventType
     {
         PatchsetCreated,
+        DraftPublished,
         ChangeAbandoned,
         ChangeRestored,
         ChangeMerged,
@@ -15,6 +16,7 @@ namespace Gerritter.GerritStreamEvents.Events
     public static class Event
     {
         private const string patchsetCreatedType = "patchset-created";
+        private const string draftPublishedType = "draft-published";
         private const string changeAbandonedType = "change-abandoned";
         private const string changeRestoredType = "change-restored";
         private const string changeMergedType = "change-merged";
@@ -27,6 +29,9 @@ namespace Gerritter.GerritStreamEvents.Events
             {
                 case patchsetCreatedType:
                     return EventType.PatchsetCreated;
+
+                case draftPublishedType:
+                    return EventType.DraftPublished;
 
                 case changeAbandonedType:
                     return EventType.ChangeAbandoned;

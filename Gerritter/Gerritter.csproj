@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamicJson.cs" />
+    <Compile Include="GerritStreamEvents\Events\DraftPublishedEvent.cs" />
     <Compile Include="GerritStreamEvents\NotificationMessage.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
