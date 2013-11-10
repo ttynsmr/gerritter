@@ -13,6 +13,7 @@ namespace Gerritter
         private const string codeReviewApprovalType = "CRVW";
 
         private const string changeStatusNew = "NEW";
+        private const string changeStatusDraft = "DRAFT";
         private const string changeStatusSubmitted = "SUBMITTED";
         private const string changeStatusMerged = "MERGED";
         private const string changeStatusAbandoned = "ABANDONED";

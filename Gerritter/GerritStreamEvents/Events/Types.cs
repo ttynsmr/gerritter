@@ -10,7 +10,9 @@ namespace Gerritter.GerritStreamEvents.Events
         ChangeRestored,
         ChangeMerged,
         CommentAdded,
-        RefUpdated
+        RefUpdated,
+        RevieweAdded,
+        MergeFailed
     }
 
     public static class Event
@@ -22,6 +24,8 @@ namespace Gerritter.GerritStreamEvents.Events
         private const string changeMergedType = "change-merged";
         private const string commentAddedType = "comment-added";
         private const string refUpdatedType = "ref-updated";
+        private const string revieweAddedType = "reviewer-added";
+        private const string mergeFailedType = "merge-failed";
 
         public static EventType GetEventTyepe(string type)
         {
@@ -47,6 +51,12 @@ namespace Gerritter.GerritStreamEvents.Events
 
                 case refUpdatedType:
                     return EventType.RefUpdated;
+
+                case revieweAddedType:
+                    return EventType.RevieweAdded;
+
+                case mergeFailedType:
+                    return EventType.MergeFailed;
 
                 default:
                     throw new ArgumentException(string.Format("\"{0}\" is unknown type."), type);
