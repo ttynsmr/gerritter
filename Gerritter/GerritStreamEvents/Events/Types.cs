@@ -11,7 +11,7 @@ namespace Gerritter.GerritStreamEvents.Events
         ChangeMerged,
         CommentAdded,
         RefUpdated,
-        RevieweAdded,
+        ReviewerAdded,
         MergeFailed
     }
 
@@ -24,7 +24,7 @@ namespace Gerritter.GerritStreamEvents.Events
         private const string changeMergedType = "change-merged";
         private const string commentAddedType = "comment-added";
         private const string refUpdatedType = "ref-updated";
-        private const string revieweAddedType = "reviewer-added";
+        private const string reviewerAddedType = "reviewer-added";
         private const string mergeFailedType = "merge-failed";
 
         public static EventType GetEventTyepe(string type)
@@ -52,8 +52,8 @@ namespace Gerritter.GerritStreamEvents.Events
                 case refUpdatedType:
                     return EventType.RefUpdated;
 
-                case revieweAddedType:
-                    return EventType.RevieweAdded;
+                case reviewerAddedType:
+                    return EventType.ReviewerAdded;
 
                 case mergeFailedType:
                     return EventType.MergeFailed;

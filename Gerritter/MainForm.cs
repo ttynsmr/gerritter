@@ -67,7 +67,7 @@ namespace Gerritter
                     gerritEvent = new MergeFailedEvent(json);
                     break;
 
-                case EventType.RevieweAdded:
+                case EventType.ReviewerAdded:
                     gerritEvent = new ReviewerAddedEvent(json);
                     break;
             }
